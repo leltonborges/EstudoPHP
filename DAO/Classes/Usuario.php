@@ -51,23 +51,28 @@ class Usuario {
     public function loadById($id) {
         $sql = new Sql();
         $results = $sql->select("SELECT * FROM tb_users WHERE id_user = :ID", array(":ID" => $id));
-        if (count($result) > 0) {
-            $row = $results[0];
-            $this->setId_user($row['id_user']);
-            $this->setName_user($row['nome_user']);
-            $this->setLogin_user($row['login_user']);
-            $this->setSenha_user($row['senha_user']);
-            $this->setData_cad_user(new DateTime($row['data_cad_user']));
+        if (count($results) > 0) {
+            $this->setData($results[0]);
         }
     }
+    
+    public function setData($data){
+
+		$this->setId_user($data['id_user']);
+		$this->setName_user($data['nome_user']);
+		$this->setLogin_user($data['login_user']);		
+                $this->setSenha_user($data["senha_user"]);
+                $this->setData_cad_user(new DateTime($data['data_cad_user']));
+
+	}
 
     public function __toString() {
-        json_decode(array(
-            'id_user' => $this->getId_user(),
-            'name_user' => $this->getName_user(),
-            'login_user' => $this->getLogin_user(),
-            'senha_user' => $this->getSenha_user(),
-            'Data_cad_user' => $this->getData_cad_user()->format("d/m/Y H:i:s")
+        return json_encode(array(
+            "id_user" => $this->getId_user(),
+            "nome_user" => $this->getName_user(),
+            "login_user" => $this->getLogin_user(),
+            "senha_user" => $this->getSenha_user(),
+            "data_cad_user" => $this->getData_cad_user()->format("d/m/Y H:i:s")
         ));
     }
 
