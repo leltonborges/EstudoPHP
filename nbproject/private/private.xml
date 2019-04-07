@@ -4,8 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/var/www/html/EstudoPHP/DAO/Classes/Usuario.php</file>
+            <file>file:/var/www/html/EstudoPHP/DIR/scan.php</file>
             <file>file:/var/www/html/EstudoPHP/DAO/index.php</file>
             <file>file:/var/www/html/EstudoPHP/DAO/Classes/Sql.php</file>
+            <file>file:/var/www/html/EstudoPHP/DIR/criar_rm_dir.php</file>
         </group>
     </open-files>
 </project-private>
